@@ -96,7 +96,6 @@
             label1 = new Label();
             comboBoxCliente = new ComboBox();
             clienteBindingSource = new BindingSource(components);
-            sqlCommand1 = new Microsoft.Data.SqlClient.SqlCommand();
             label3 = new Label();
             textBoxPunto = new TextBox();
             label17 = new Label();
@@ -131,6 +130,7 @@
             // 
             // dataGridView1
             // 
+            dataGridView1.AllowUserToOrderColumns = true;
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { idVentaDataGridViewTextBoxColumn, fechaDataGridViewTextBoxColumn, imputacionDataGridViewTextBoxColumn, tipoCambioDataGridViewTextBoxColumn, puntoDataGridViewTextBoxColumn, numeroDataGridViewTextBoxColumn, netoGravadoDataGridViewTextBoxColumn, netoNoGravadoDataGridViewTextBoxColumn, exentoDataGridViewTextBoxColumn, ivaDataGridViewTextBoxColumn, percIVADataGridViewTextBoxColumn, percIIBBDataGridViewTextBoxColumn, percMunicipalidadDataGridViewTextBoxColumn, clienteDataGridViewTextBoxColumn, tipoComprobanteDataGridViewTextBoxColumn, monedaDataGridViewTextBoxColumn, centroCostoDataGridViewTextBoxColumn, cuentaDataGridViewTextBoxColumn });
@@ -372,7 +372,7 @@
             comboBoxCentro.AutoCompleteMode = AutoCompleteMode.Suggest;
             comboBoxCentro.AutoCompleteSource = AutoCompleteSource.ListItems;
             comboBoxCentro.DataSource = centroCostoBindingSource;
-            comboBoxCentro.DisplayMember = "descripcion";
+            comboBoxCentro.DisplayMember = "idCentro";
             comboBoxCentro.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxCentro.FormattingEnabled = true;
             comboBoxCentro.Location = new Point(60, 367);
@@ -411,7 +411,7 @@
             comboBoxCuenta.AutoCompleteMode = AutoCompleteMode.Suggest;
             comboBoxCuenta.AutoCompleteSource = AutoCompleteSource.ListItems;
             comboBoxCuenta.DataSource = cuentaBindingSource;
-            comboBoxCuenta.DisplayMember = "detalle";
+            comboBoxCuenta.DisplayMember = "idCuenta";
             comboBoxCuenta.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxCuenta.FormattingEnabled = true;
             comboBoxCuenta.Location = new Point(60, 332);
@@ -592,7 +592,7 @@
             // comboBoxMoneda
             // 
             comboBoxMoneda.DataSource = monedaBindingSource;
-            comboBoxMoneda.DisplayMember = "Descripcion";
+            comboBoxMoneda.DisplayMember = "idMoneda";
             comboBoxMoneda.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxMoneda.FormattingEnabled = true;
             comboBoxMoneda.Location = new Point(78, 163);
@@ -639,7 +639,7 @@
             comboBoxTipo.AutoCompleteMode = AutoCompleteMode.Suggest;
             comboBoxTipo.AutoCompleteSource = AutoCompleteSource.ListItems;
             comboBoxTipo.DataSource = tipoComprobantebindingSource;
-            comboBoxTipo.DisplayMember = "descripcion";
+            comboBoxTipo.DisplayMember = "idTipo";
             comboBoxTipo.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxTipo.FormattingEnabled = true;
             comboBoxTipo.Location = new Point(76, 101);
@@ -697,7 +697,7 @@
             comboBoxCliente.AutoCompleteMode = AutoCompleteMode.Suggest;
             comboBoxCliente.AutoCompleteSource = AutoCompleteSource.ListItems;
             comboBoxCliente.DataSource = clienteBindingSource;
-            comboBoxCliente.DisplayMember = "nombre";
+            comboBoxCliente.DisplayMember = "idCliente";
             comboBoxCliente.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxCliente.FormattingEnabled = true;
             comboBoxCliente.Location = new Point(76, 69);
@@ -710,11 +710,6 @@
             // clienteBindingSource
             // 
             clienteBindingSource.DataSource = typeof(Modelos.Cliente);
-            // 
-            // sqlCommand1
-            // 
-            sqlCommand1.CommandTimeout = 30;
-            sqlCommand1.EnableOptimizedParameterBinding = false;
             // 
             // label3
             // 
@@ -865,17 +860,11 @@
         private DateTimePicker dateTimePicker1;
         private Label label1;
         private ComboBox comboBoxCliente;
-        private Microsoft.Data.SqlClient.SqlCommand sqlCommand1;
         private BindingSource ventaBindingSource;
         private Label label3;
         private TextBox textBoxPunto;
         private Label label17;
         private TextBox textBoxImputacion;
-        private BindingSource clienteBindingSource;
-        private BindingSource cuentaBindingSource;
-        private BindingSource monedaBindingSource;
-        private BindingSource centroCostoBindingSource;
-        private BindingSource tipoComprobantebindingSource;
         private Label labelId;
         private DataGridView dataGridView1;
         private DataGridViewTextBoxColumn idVentaDataGridViewTextBoxColumn;
@@ -896,5 +885,10 @@
         private DataGridViewTextBoxColumn monedaDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn centroCostoDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn cuentaDataGridViewTextBoxColumn;
+        private BindingSource centroCostoBindingSource;
+        private BindingSource cuentaBindingSource;
+        private BindingSource monedaBindingSource;
+        private BindingSource tipoComprobantebindingSource;
+        private BindingSource clienteBindingSource;
     }
 }

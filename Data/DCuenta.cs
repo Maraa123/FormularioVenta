@@ -24,7 +24,7 @@ namespace Data
                 SqlDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
-                    TipoCuenta tipoCuenta = DTipoCuenta.GetById(Convert.ToInt32(reader["idTipoCuenta"]));
+                    TipoCuenta tipoCuenta = DTipoCuenta.GetById(Convert.ToInt32(reader["codTipoCuenta"]));
                     result = new Cuenta(
                         Convert.ToInt32(reader["idCuenta"]),
                         reader["detalle"].ToString(),
@@ -53,7 +53,7 @@ namespace Data
                 SqlDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
-                    TipoCuenta tipoCuenta = DTipoCuenta.GetById(Convert.ToInt32(reader["idTipoCuenta"]));
+                    TipoCuenta tipoCuenta = DTipoCuenta.GetById(Convert.ToInt32(reader["codTipoCuenta"]));
                     Cuenta cuenta = new Cuenta(
                         Convert.ToInt32(reader["idCuenta"]),
                         reader["detalle"].ToString(),

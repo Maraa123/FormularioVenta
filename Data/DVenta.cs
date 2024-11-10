@@ -18,7 +18,7 @@ namespace Data
             {
                 string conexion = System.Configuration.ConfigurationManager.ConnectionStrings["conexion"].ConnectionString;
                 SqlConnection connection = new SqlConnection(conexion);
-                SqlCommand command = new SqlCommand("GetAllVentas", connection);
+                SqlCommand command = new SqlCommand("GetAllVenta", connection);
                 connection.Open();
                 SqlDataReader reader = command.ExecuteReader();
                 while (reader.Read())

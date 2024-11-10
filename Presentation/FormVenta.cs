@@ -24,37 +24,42 @@ namespace Presentacion
         }
         private void CargarCliente()
         {
-            List<Cliente> list = new List<Cliente>();
-            list = BCliente.Get();
+            List<Cliente> list = BCliente.Get();
             clienteBindingSource.DataSource = list;
+            comboBoxCliente.DisplayMember = "nombre"; // Asume que 'Nombre' es la propiedad de la clase Cliente que contiene la descripción
+            comboBoxCliente.ValueMember = "idCliente"; // Asume que 'IdCliente' es la propiedad que contiene el ID
         }
 
         private void CargarTipoComprobante()
         {
-            List<TipoComprobante> list = new List<TipoComprobante>();
-            list = BTipoComprobante.Get();
+            List<TipoComprobante> list = BTipoComprobante.Get();
             tipoComprobantebindingSource.DataSource = list;
+            comboBoxTipo.DisplayMember = "descripcion"; // Asume que 'Descripcion' es la propiedad que contiene la descripción
+            comboBoxTipo.ValueMember = "idTipo"; // Asume que 'IdTipoComprobante' es la propiedad que contiene el ID
         }
 
         private void CargarMoneda()
         {
-            List<Moneda> list = new List<Moneda>();
-            list = BMoneda.Get();
+            List<Moneda> list = BMoneda.Get();
             monedaBindingSource.DataSource = list;
+            comboBoxMoneda.DisplayMember = "descripcion"; // Asume que 'Descripcion' es la propiedad de la clase Moneda
+            comboBoxMoneda.ValueMember = "idMoneda"; // Asume que 'IdMoneda' es la propiedad que contiene el ID
         }
 
         private void CargarCuenta()
         {
-            List<Cuenta> list = new List<Cuenta>();
-            list = BCuenta.Get();
+            List<Cuenta> list = BCuenta.Get();
             cuentaBindingSource.DataSource = list;
+            comboBoxCuenta.DisplayMember = "detalle"; // Asume que 'Nombre' es la propiedad de la clase Cuenta
+            comboBoxCuenta.ValueMember = "idCuenta"; // Asume que 'IdCuenta' es la propiedad que contiene el ID
         }
 
         private void CargarCentro()
         {
-            List<CentroCosto> list = new List<CentroCosto>();
-            list = BCentroCosto.Get();
+            List<CentroCosto> list = BCentroCosto.Get();
             centroCostoBindingSource.DataSource = list;
+            comboBoxCentro.DisplayMember = "descripcion"; // Asume que 'Descripcion' es la propiedad de la clase CentroCosto
+            comboBoxCentro.ValueMember = "idCentro"; // Asume que 'IdCentroCosto' es la propiedad que contiene el ID
         }
 
         private void FormVenta_Load(object sender, EventArgs e)

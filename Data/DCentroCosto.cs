@@ -45,7 +45,7 @@ namespace Data
             {
                 string conexion = System.Configuration.ConfigurationManager.ConnectionStrings["conexion"].ConnectionString;
                 SqlConnection connection = new SqlConnection(conexion);
-                SqlCommand command = new SqlCommand("GetAllCentro", connection);
+                SqlCommand command = new SqlCommand("GetAllCentroCosto", connection);
                 connection.Open();
                 SqlDataReader reader = command.ExecuteReader();
                 while (reader.Read())
