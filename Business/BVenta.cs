@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,11 +35,11 @@ namespace Business
                 throw;
             }
         }
-        public static void Update(int codCliente, int codTipoComprobante, int codMoneda, int codCuenta, DateTime fecha, int imputacion, decimal tipoCambio, int punto, string numero, double netoGravado, double netoNoGravado, double exento, double iva, double percIVA, double percIIBB, double percMunicipalidad, int codCentroCosto)
+        public static void Update(int idVenta, int codCliente, int codTipoComprobante, int codMoneda, int codCuenta, DateTime fecha, int imputacion, decimal tipoCambio, int punto, string numero, double netoGravado, double netoNoGravado, double exento, double iva, double percIVA, double percIIBB, double percMunicipalidad, int codCentroCosto)
         {
             try
             {
-                DVenta.UpdateVenta(codCliente, codTipoComprobante, codMoneda, codCuenta, fecha, imputacion, tipoCambio, punto, numero, netoGravado, netoNoGravado, exento, iva, percIVA, percIIBB, percMunicipalidad, codCentroCosto);
+                DVenta.UpdateVenta(idVenta, codCliente, codTipoComprobante, codMoneda, codCuenta, fecha, imputacion, tipoCambio, punto, numero, netoGravado, netoNoGravado, exento, iva, percIVA, percIIBB, percMunicipalidad, codCentroCosto);
             }
             catch (Exception)
             {
@@ -56,6 +57,8 @@ namespace Business
                 throw;
             }
         }
+
+        
 
 
     }

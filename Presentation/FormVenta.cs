@@ -33,7 +33,7 @@ namespace Presentacion
         {
             List<TipoComprobante> list = new List<TipoComprobante>();
             list = BTipoComprobante.Get();
-            tipoComprobanteBindingSource.DataSource = list;
+            tipoComprobantebindingSource.DataSource = list;
         }
 
         private void CargarMoneda()
@@ -84,11 +84,11 @@ namespace Presentacion
 
                 DateTime fecha = dateTimePicker1.Value;
 
-                int codCliente = (int)comboBox1.SelectedValue;
-                int codTipoComprobante = (int)comboBox2.SelectedValue;
-                int codMoneda = (int)comboBox3.SelectedValue;
-                int codCuenta = (int)comboBox4.SelectedValue;
-                int codCentroCosto = (int)comboBox5.SelectedValue;
+                int codCliente = (int)comboBoxCliente.SelectedValue;
+                int codTipoComprobante = (int)comboBoxTipo.SelectedValue;
+                int codMoneda = (int)comboBoxMoneda.SelectedValue;
+                int codCuenta = (int)comboBoxCuenta.SelectedValue;
+                int codCentroCosto = (int)comboBoxCentro.SelectedValue;
 
                 int imputacion = int.Parse(textBoxImputacion.Text);
                 decimal cambio = decimal.Parse(textBoxCambio.Text);
@@ -116,47 +116,6 @@ namespace Presentacion
             catch (Exception ex)
             {
                 // Captura cualquier otro tipo de error
-                MessageBox.Show($"Ocurrió un error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                if (ventaList.Count > 0)
-                {
-                    // Obtener la venta seleccionada desde el BindingSource
-                    Venta venta = (Venta)ventaBindingSource.Current;
-
-                    if (venta != null)
-                    {
-                        comboBox1.SelectedValue = venta.Cliente;
-                        comboBox2.SelectedValue = venta.TipoComprobante;
-                        comboBox3.SelectedValue = venta.Moneda;
-                        comboBox4.SelectedValue = venta.Cuenta;
-                        comboBox5.SelectedValue = venta.CentroCosto;
-
-                        // Asignar valores de los campos adicionales
-                        textBoxImputacion.Text = venta.imputacion.ToString();
-                        textBoxCambio.Text = venta.tipoCambio.ToString();
-                        textBoxNumero.Text = venta.numero.ToString();
-                        textBoxPunto.Text = venta.punto.ToString();
-                        textBoxGravado.Text = venta.netoGravado.ToString();
-                        textBoxNoGravado.Text = venta.netoNoGravado.ToString();
-                        textBoxExento.Text = venta.exento.ToString();
-                        textBoxIva.Text = venta.iva.ToString();
-                        textBoxPerIva.Text = venta.percIVA.ToString();
-                        textBoxPerIibb.Text = venta.percIIBB.ToString();
-                        textBoxPerMun.Text = venta.percMunicipalidad.ToString();
-
-                        // Asignar fecha
-                        dateTimePicker1.Value = venta.fecha;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                // Manejo de errores
                 MessageBox.Show($"Ocurrió un error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -194,14 +153,14 @@ namespace Presentacion
             }
             catch (Exception ex)
             {
-                // Manejo de errores
-                MessageBox.Show($"Ocurrió un error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+               
             }
         }
 
 
         private void Modificar_Click(object sender, EventArgs e)
         {
+
             try
             {
                 // Verificar que los campos no estén vacíos (como lo haces en el Cargar_Click)
@@ -215,16 +174,15 @@ namespace Presentacion
                     return;
                 }
 
-                // Obtener el id de la venta seleccionada desde el label o cualquier otro control
-                int idVenta = int.Parse(label5.Text); // Asumiendo que el id de la venta está en el label5
+                int idVenta = int.Parse(labelId.Text);
 
                 // Obtener los nuevos valores desde los controles
                 DateTime fecha = dateTimePicker1.Value;
-                int codCliente = (int)comboBox1.SelectedValue;
-                int codTipoComprobante = (int)comboBox2.SelectedValue;
-                int codMoneda = (int)comboBox3.SelectedValue;
-                int codCuenta = (int)comboBox4.SelectedValue;
-                int codCentroCosto = (int)comboBox5.SelectedValue;
+                int codCliente = (int)comboBoxCliente.SelectedValue;
+                int codTipoComprobante = (int)comboBoxTipo.SelectedValue;
+                int codMoneda = (int)comboBoxMoneda.SelectedValue;
+                int codCuenta = (int)comboBoxCuenta.SelectedValue;
+                int codCentroCosto = (int)comboBoxCentro.SelectedValue;
 
                 int imputacion = int.Parse(textBoxImputacion.Text);
                 decimal cambio = decimal.Parse(textBoxCambio.Text);
@@ -238,7 +196,7 @@ namespace Presentacion
                 double permun = double.Parse(textBoxPerMun.Text);
 
                 // Llamar al método de actualización para modificar los datos en la base de datos
-                BVenta.Update(codCliente, codTipoComprobante, codMoneda, codCuenta, fecha, imputacion,
+                BVenta.Update(idVenta, codCliente, codTipoComprobante, codMoneda, codCuenta, fecha, imputacion,
                               cambio, punto, textBoxNumero.Text, gravado, nogravado, exento, iva, periva, periibb,
                               permun, codCentroCosto);
 
@@ -250,54 +208,129 @@ namespace Presentacion
             {
                 MessageBox.Show("Por favor, ingrese valores válidos en los campos numéricos.", "Error de Formato", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Ocurrió un error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void Cobrar_Click(object sender, EventArgs e)
-        {
-
-            FormCobros formCobros = new FormCobros();
-            formCobros.Show();
-
 
         }
 
         private void Filtrar_Click(object sender, EventArgs e)
         {
+
+        }
+
+
+        private void dataGridView1_SelectionChanged_1(object sender, EventArgs e)
+        {
             try
-            { 
-                if (string.IsNullOrEmpty(textBoxImputacion.Text) || !int.TryParse(textBoxImputacion.Text, out int imputacion))
+            {
+                if (ventaList.Count > 0)
                 {
-                    MessageBox.Show("Por favor, ingrese un valor válido para Imputación", "Error de entrada", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
 
-                DateTime fecha = dateTimePicker1.Value.Date;
+                    Venta venta = (Venta)ventaBindingSource.Current;
+                    if (venta != null)
+                    {
+                        comboBoxCliente.SelectedValue = venta.Cliente;
+                        comboBoxTipo.SelectedValue = venta.TipoComprobante;
+                        comboBoxMoneda.SelectedValue = venta.Moneda;
+                        comboBoxCuenta.SelectedValue = venta.Cuenta;
+                        comboBoxCentro.SelectedValue = venta.CentroCosto;
 
-                // Filtrar la lista de ventas por imputacion y fecha
-                var ventasFiltradas = ventaList.Where(v => v.imputacion == imputacion && v.fecha.Date == fecha).ToList();
+                        labelId.Text = venta.idVenta.ToString();
+                        textBoxImputacion.Text = venta.imputacion.ToString();
+                        textBoxCambio.Text = venta.tipoCambio.ToString();
+                        textBoxNumero.Text = venta.numero.ToString();
+                        textBoxPunto.Text = venta.punto.ToString();
+                        textBoxGravado.Text = venta.netoGravado.ToString();
+                        textBoxNoGravado.Text = venta.netoNoGravado.ToString();
+                        textBoxExento.Text = venta.exento.ToString();
+                        textBoxIva.Text = venta.iva.ToString();
+                        textBoxPerIva.Text = venta.percIVA.ToString();
+                        textBoxPerIibb.Text = venta.percIIBB.ToString();
+                        textBoxPerMun.Text = venta.percMunicipalidad.ToString();
 
-                // Actualizar el BindingSource con las ventas filtradas
-                ventaBindingSource.DataSource = ventasFiltradas;
-
-                // Actualizar el DataGridView
-                dataGridView1.Refresh();
-
-                // Verifica si hay resultados después del filtro
-                if (ventasFiltradas.Count == 0)
-                {
-                    MessageBox.Show("No se encontraron resultados para los filtros especificados.", "Sin resultados", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        dateTimePicker1.Value = venta.fecha;
+                    }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Ocurrió un error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+               
+            }
+
+        }
+
+        private void LimpiarCampos()
+        {
+            // Limpiar los campos de texto
+            labelId.Text = string.Empty;
+            textBoxImputacion.Text = string.Empty;
+            textBoxCambio.Text = string.Empty;
+            textBoxNumero.Text = string.Empty;
+            textBoxPunto.Text = string.Empty;
+            textBoxGravado.Text = string.Empty;
+            textBoxNoGravado.Text = string.Empty;
+            textBoxExento.Text = string.Empty;
+            textBoxIva.Text = string.Empty;
+            textBoxPerIva.Text = string.Empty;
+            textBoxPerIibb.Text = string.Empty;
+            textBoxPerMun.Text = string.Empty;
+
+            // Limpiar ComboBox
+            comboBoxCliente.SelectedIndex = -1;
+            comboBoxTipo.SelectedIndex = -1;
+            comboBoxMoneda.SelectedIndex = -1;
+            comboBoxCuenta.SelectedIndex = -1;
+            comboBoxCentro.SelectedIndex = -1;
+
+            // Limpiar el DateTimePicker
+            dateTimePicker1.Value = DateTime.Now;
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                // Obtener el índice de la fila seleccionada
+                int indice = e.RowIndex;
+
+                // Verificar si la fila es válida y si es la última fila (de nuevo registro)
+                if (indice == -1 || dataGridView1.Rows[indice].IsNewRow || string.IsNullOrEmpty(dataGridView1.Rows[indice].Cells[1].Value?.ToString()))
+                {
+                    LimpiarCampos(); // Limpiar los campos si es una fila vacía o el índice es inválido
+                }
+                else
+                {
+                    // Obtener los datos de la fila seleccionada
+                    var venta = (Venta)ventaBindingSource.Current;
+
+                    // Asignar los valores a los controles
+                    comboBoxCliente.SelectedValue = venta.Cliente;
+                    comboBoxTipo.SelectedValue = venta.TipoComprobante;
+                    comboBoxMoneda.SelectedValue = venta.Moneda;
+                    comboBoxCuenta.SelectedValue = venta.Cuenta;
+                    comboBoxCentro.SelectedValue = venta.CentroCosto;
+
+                    labelId.Text = venta.idVenta.ToString();
+                    textBoxImputacion.Text = venta.imputacion.ToString();
+                    textBoxCambio.Text = venta.tipoCambio.ToString();
+                    textBoxNumero.Text = venta.numero.ToString();
+                    textBoxPunto.Text = venta.punto.ToString();
+                    textBoxGravado.Text = venta.netoGravado.ToString();
+                    textBoxNoGravado.Text = venta.netoNoGravado.ToString();
+                    textBoxExento.Text = venta.exento.ToString();
+                    textBoxIva.Text = venta.iva.ToString();
+                    textBoxPerIva.Text = venta.percIVA.ToString();
+                    textBoxPerIibb.Text = venta.percIIBB.ToString();
+                    textBoxPerMun.Text = venta.percMunicipalidad.ToString();
+
+                    dateTimePicker1.Value = venta.fecha;
+                }
+            }
+            catch (Exception ex)
+            {
+
             }
         }
-    }
-}
+     }
+ }
+
 
 

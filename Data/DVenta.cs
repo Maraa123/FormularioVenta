@@ -98,14 +98,15 @@ namespace Data
                 throw;
             }
         }
-        public static void UpdateVenta(int codCliente, int codTipoComprobante, int codMoneda, int codCuenta, DateTime fecha, int imputacion, decimal tipoCambio, int punto, string numero, double netoGravado, double netoNoGravado, double exento, double iva, double percIVA, double percIIBB, double percMunicipalidad, int codCentroCosto
-)
+        public static void UpdateVenta(int idVenta, int codCliente, int codTipoComprobante, int codMoneda, int codCuenta, DateTime fecha, int imputacion, decimal tipoCambio, int punto, string numero, double netoGravado, double netoNoGravado, double exento, double iva, double percIVA, double percIIBB, double percMunicipalidad, int codCentroCosto)
         {
             try
             {
                 string conexion = System.Configuration.ConfigurationManager.ConnectionStrings["conexion"].ConnectionString;
                 SqlConnection connection = new SqlConnection(conexion);
                 SqlCommand command = new SqlCommand("updateVenta", connection);
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@idVenta", idVenta);
                 command.Parameters.AddWithValue("@codCliente", codCliente);
                 command.Parameters.AddWithValue("@codTipoComprobante", codTipoComprobante);
                 command.Parameters.AddWithValue("@codMoneda", codMoneda);
@@ -133,7 +134,6 @@ namespace Data
             }
         }
 
-
         public static void DeleteVenta(int idVenta)
         {
             try
@@ -152,8 +152,6 @@ namespace Data
                 throw;
             }
         }
-
-
 
     }
 }

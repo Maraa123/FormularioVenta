@@ -30,40 +30,40 @@
         {
             components = new System.ComponentModel.Container();
             groupBox1 = new GroupBox();
-            textBox12 = new TextBox();
-            Filtrar = new Button();
-            Cobrar = new Button();
-            Detalle = new Button();
             dataGridView1 = new DataGridView();
             idVentaDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             fechaDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             imputacionDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            Cliente = new DataGridViewTextBoxColumn();
-            TipoComprobante = new DataGridViewTextBoxColumn();
-            numero = new DataGridViewTextBoxColumn();
-            punto = new DataGridViewTextBoxColumn();
-            Moneda = new DataGridViewTextBoxColumn();
-            tipoCambio = new DataGridViewTextBoxColumn();
-            netoGravado = new DataGridViewTextBoxColumn();
-            iva = new DataGridViewTextBoxColumn();
-            netoNoGravado = new DataGridViewTextBoxColumn();
-            exento = new DataGridViewTextBoxColumn();
-            percIVA = new DataGridViewTextBoxColumn();
-            percIIBB = new DataGridViewTextBoxColumn();
-            percMunicipalidad = new DataGridViewTextBoxColumn();
-            Cuenta = new DataGridViewTextBoxColumn();
-            CentroCosto = new DataGridViewTextBoxColumn();
+            tipoCambioDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            puntoDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            numeroDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            netoGravadoDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            netoNoGravadoDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            exentoDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            ivaDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            percIVADataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            percIIBBDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            percMunicipalidadDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            clienteDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            tipoComprobanteDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            monedaDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            centroCostoDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            cuentaDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             ventaBindingSource = new BindingSource(components);
+            textBoxFiltro = new TextBox();
+            Filtrar = new Button();
+            Cobrar = new Button();
+            Detalle = new Button();
             Eliminar = new Button();
             Modificar = new Button();
             Cargar = new Button();
             button4 = new Button();
             button3 = new Button();
-            comboBox5 = new ComboBox();
+            comboBoxCentro = new ComboBox();
             centroCostoBindingSource = new BindingSource(components);
             label16 = new Label();
             label15 = new Label();
-            comboBox4 = new ComboBox();
+            comboBoxCuenta = new ComboBox();
             cuentaBindingSource = new BindingSource(components);
             textBoxPerMun = new TextBox();
             label14 = new Label();
@@ -83,41 +83,42 @@
             textBoxGravado = new TextBox();
             textBoxCambio = new TextBox();
             label7 = new Label();
-            comboBox3 = new ComboBox();
+            comboBoxMoneda = new ComboBox();
             monedaBindingSource = new BindingSource(components);
             label6 = new Label();
             textBoxNumero = new TextBox();
             label5 = new Label();
-            comboBox2 = new ComboBox();
-            tipoComprobanteBindingSource = new BindingSource(components);
+            comboBoxTipo = new ComboBox();
+            tipoComprobantebindingSource = new BindingSource(components);
             label4 = new Label();
             label2 = new Label();
             dateTimePicker1 = new DateTimePicker();
             label1 = new Label();
-            comboBox1 = new ComboBox();
+            comboBoxCliente = new ComboBox();
             clienteBindingSource = new BindingSource(components);
             sqlCommand1 = new Microsoft.Data.SqlClient.SqlCommand();
             label3 = new Label();
             textBoxPunto = new TextBox();
             label17 = new Label();
             textBoxImputacion = new TextBox();
+            labelId = new Label();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ventaBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)centroCostoBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)cuentaBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)monedaBindingSource).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)tipoComprobanteBindingSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)tipoComprobantebindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)clienteBindingSource).BeginInit();
             SuspendLayout();
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(textBox12);
+            groupBox1.Controls.Add(dataGridView1);
+            groupBox1.Controls.Add(textBoxFiltro);
             groupBox1.Controls.Add(Filtrar);
             groupBox1.Controls.Add(Cobrar);
             groupBox1.Controls.Add(Detalle);
-            groupBox1.Controls.Add(dataGridView1);
             groupBox1.Controls.Add(Eliminar);
             groupBox1.Controls.Add(Modificar);
             groupBox1.Location = new Point(367, 7);
@@ -128,13 +129,159 @@
             groupBox1.TabIndex = 77;
             groupBox1.TabStop = false;
             // 
-            // textBox12
+            // dataGridView1
             // 
-            textBox12.Location = new Point(11, 19);
-            textBox12.Margin = new Padding(2);
-            textBox12.Name = "textBox12";
-            textBox12.Size = new Size(331, 23);
-            textBox12.TabIndex = 47;
+            dataGridView1.AutoGenerateColumns = false;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { idVentaDataGridViewTextBoxColumn, fechaDataGridViewTextBoxColumn, imputacionDataGridViewTextBoxColumn, tipoCambioDataGridViewTextBoxColumn, puntoDataGridViewTextBoxColumn, numeroDataGridViewTextBoxColumn, netoGravadoDataGridViewTextBoxColumn, netoNoGravadoDataGridViewTextBoxColumn, exentoDataGridViewTextBoxColumn, ivaDataGridViewTextBoxColumn, percIVADataGridViewTextBoxColumn, percIIBBDataGridViewTextBoxColumn, percMunicipalidadDataGridViewTextBoxColumn, clienteDataGridViewTextBoxColumn, tipoComprobanteDataGridViewTextBoxColumn, monedaDataGridViewTextBoxColumn, centroCostoDataGridViewTextBoxColumn, cuentaDataGridViewTextBoxColumn });
+            dataGridView1.DataSource = ventaBindingSource;
+            dataGridView1.Location = new Point(11, 65);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
+            dataGridView1.RowTemplate.Height = 25;
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView1.Size = new Size(679, 315);
+            dataGridView1.TabIndex = 48;
+            dataGridView1.CellClick += dataGridView1_CellClick;
+            dataGridView1.SelectionChanged += dataGridView1_SelectionChanged_1;
+            // 
+            // idVentaDataGridViewTextBoxColumn
+            // 
+            idVentaDataGridViewTextBoxColumn.DataPropertyName = "idVenta";
+            idVentaDataGridViewTextBoxColumn.HeaderText = "idVenta";
+            idVentaDataGridViewTextBoxColumn.Name = "idVentaDataGridViewTextBoxColumn";
+            idVentaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // fechaDataGridViewTextBoxColumn
+            // 
+            fechaDataGridViewTextBoxColumn.DataPropertyName = "fecha";
+            fechaDataGridViewTextBoxColumn.HeaderText = "fecha";
+            fechaDataGridViewTextBoxColumn.Name = "fechaDataGridViewTextBoxColumn";
+            fechaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // imputacionDataGridViewTextBoxColumn
+            // 
+            imputacionDataGridViewTextBoxColumn.DataPropertyName = "imputacion";
+            imputacionDataGridViewTextBoxColumn.HeaderText = "imputacion";
+            imputacionDataGridViewTextBoxColumn.Name = "imputacionDataGridViewTextBoxColumn";
+            imputacionDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // tipoCambioDataGridViewTextBoxColumn
+            // 
+            tipoCambioDataGridViewTextBoxColumn.DataPropertyName = "tipoCambio";
+            tipoCambioDataGridViewTextBoxColumn.HeaderText = "tipoCambio";
+            tipoCambioDataGridViewTextBoxColumn.Name = "tipoCambioDataGridViewTextBoxColumn";
+            tipoCambioDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // puntoDataGridViewTextBoxColumn
+            // 
+            puntoDataGridViewTextBoxColumn.DataPropertyName = "punto";
+            puntoDataGridViewTextBoxColumn.HeaderText = "punto";
+            puntoDataGridViewTextBoxColumn.Name = "puntoDataGridViewTextBoxColumn";
+            puntoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // numeroDataGridViewTextBoxColumn
+            // 
+            numeroDataGridViewTextBoxColumn.DataPropertyName = "numero";
+            numeroDataGridViewTextBoxColumn.HeaderText = "numero";
+            numeroDataGridViewTextBoxColumn.Name = "numeroDataGridViewTextBoxColumn";
+            numeroDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // netoGravadoDataGridViewTextBoxColumn
+            // 
+            netoGravadoDataGridViewTextBoxColumn.DataPropertyName = "netoGravado";
+            netoGravadoDataGridViewTextBoxColumn.HeaderText = "netoGravado";
+            netoGravadoDataGridViewTextBoxColumn.Name = "netoGravadoDataGridViewTextBoxColumn";
+            netoGravadoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // netoNoGravadoDataGridViewTextBoxColumn
+            // 
+            netoNoGravadoDataGridViewTextBoxColumn.DataPropertyName = "netoNoGravado";
+            netoNoGravadoDataGridViewTextBoxColumn.HeaderText = "netoNoGravado";
+            netoNoGravadoDataGridViewTextBoxColumn.Name = "netoNoGravadoDataGridViewTextBoxColumn";
+            netoNoGravadoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // exentoDataGridViewTextBoxColumn
+            // 
+            exentoDataGridViewTextBoxColumn.DataPropertyName = "exento";
+            exentoDataGridViewTextBoxColumn.HeaderText = "exento";
+            exentoDataGridViewTextBoxColumn.Name = "exentoDataGridViewTextBoxColumn";
+            exentoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // ivaDataGridViewTextBoxColumn
+            // 
+            ivaDataGridViewTextBoxColumn.DataPropertyName = "iva";
+            ivaDataGridViewTextBoxColumn.HeaderText = "iva";
+            ivaDataGridViewTextBoxColumn.Name = "ivaDataGridViewTextBoxColumn";
+            ivaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // percIVADataGridViewTextBoxColumn
+            // 
+            percIVADataGridViewTextBoxColumn.DataPropertyName = "percIVA";
+            percIVADataGridViewTextBoxColumn.HeaderText = "percIVA";
+            percIVADataGridViewTextBoxColumn.Name = "percIVADataGridViewTextBoxColumn";
+            percIVADataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // percIIBBDataGridViewTextBoxColumn
+            // 
+            percIIBBDataGridViewTextBoxColumn.DataPropertyName = "percIIBB";
+            percIIBBDataGridViewTextBoxColumn.HeaderText = "percIIBB";
+            percIIBBDataGridViewTextBoxColumn.Name = "percIIBBDataGridViewTextBoxColumn";
+            percIIBBDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // percMunicipalidadDataGridViewTextBoxColumn
+            // 
+            percMunicipalidadDataGridViewTextBoxColumn.DataPropertyName = "percMunicipalidad";
+            percMunicipalidadDataGridViewTextBoxColumn.HeaderText = "percMunicipalidad";
+            percMunicipalidadDataGridViewTextBoxColumn.Name = "percMunicipalidadDataGridViewTextBoxColumn";
+            percMunicipalidadDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // clienteDataGridViewTextBoxColumn
+            // 
+            clienteDataGridViewTextBoxColumn.DataPropertyName = "Cliente";
+            clienteDataGridViewTextBoxColumn.HeaderText = "Cliente";
+            clienteDataGridViewTextBoxColumn.Name = "clienteDataGridViewTextBoxColumn";
+            clienteDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // tipoComprobanteDataGridViewTextBoxColumn
+            // 
+            tipoComprobanteDataGridViewTextBoxColumn.DataPropertyName = "TipoComprobante";
+            tipoComprobanteDataGridViewTextBoxColumn.HeaderText = "TipoComprobante";
+            tipoComprobanteDataGridViewTextBoxColumn.Name = "tipoComprobanteDataGridViewTextBoxColumn";
+            tipoComprobanteDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // monedaDataGridViewTextBoxColumn
+            // 
+            monedaDataGridViewTextBoxColumn.DataPropertyName = "Moneda";
+            monedaDataGridViewTextBoxColumn.HeaderText = "Moneda";
+            monedaDataGridViewTextBoxColumn.Name = "monedaDataGridViewTextBoxColumn";
+            monedaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // centroCostoDataGridViewTextBoxColumn
+            // 
+            centroCostoDataGridViewTextBoxColumn.DataPropertyName = "CentroCosto";
+            centroCostoDataGridViewTextBoxColumn.HeaderText = "CentroCosto";
+            centroCostoDataGridViewTextBoxColumn.Name = "centroCostoDataGridViewTextBoxColumn";
+            centroCostoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // cuentaDataGridViewTextBoxColumn
+            // 
+            cuentaDataGridViewTextBoxColumn.DataPropertyName = "Cuenta";
+            cuentaDataGridViewTextBoxColumn.HeaderText = "Cuenta";
+            cuentaDataGridViewTextBoxColumn.Name = "cuentaDataGridViewTextBoxColumn";
+            cuentaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // ventaBindingSource
+            // 
+            ventaBindingSource.DataSource = typeof(Modelos.Venta);
+            // 
+            // textBoxFiltro
+            // 
+            textBoxFiltro.Location = new Point(11, 19);
+            textBoxFiltro.Margin = new Padding(2);
+            textBoxFiltro.Name = "textBoxFiltro";
+            textBoxFiltro.Size = new Size(331, 23);
+            textBoxFiltro.TabIndex = 47;
             // 
             // Filtrar
             // 
@@ -156,7 +303,6 @@
             Cobrar.TabIndex = 45;
             Cobrar.Text = "Cobrar";
             Cobrar.UseVisualStyleBackColor = true;
-            Cobrar.Click += Cobrar_Click;
             // 
             // Detalle
             // 
@@ -167,137 +313,6 @@
             Detalle.TabIndex = 44;
             Detalle.Text = "Detalle";
             Detalle.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView1
-            // 
-            dataGridView1.AllowUserToOrderColumns = true;
-            dataGridView1.AutoGenerateColumns = false;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { idVentaDataGridViewTextBoxColumn, fechaDataGridViewTextBoxColumn, imputacionDataGridViewTextBoxColumn, Cliente, TipoComprobante, numero, punto, Moneda, tipoCambio, netoGravado, iva, netoNoGravado, exento, percIVA, percIIBB, percMunicipalidad, Cuenta, CentroCosto });
-            dataGridView1.DataSource = ventaBindingSource;
-            dataGridView1.Location = new Point(16, 50);
-            dataGridView1.Margin = new Padding(2);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.RowTemplate.Height = 33;
-            dataGridView1.Size = new Size(694, 330);
-            dataGridView1.TabIndex = 43;
-            dataGridView1.SelectionChanged += dataGridView1_SelectionChanged;
-            // 
-            // idVentaDataGridViewTextBoxColumn
-            // 
-            idVentaDataGridViewTextBoxColumn.DataPropertyName = "idVenta";
-            idVentaDataGridViewTextBoxColumn.HeaderText = "idVenta";
-            idVentaDataGridViewTextBoxColumn.Name = "idVentaDataGridViewTextBoxColumn";
-            // 
-            // fechaDataGridViewTextBoxColumn
-            // 
-            fechaDataGridViewTextBoxColumn.DataPropertyName = "fecha";
-            fechaDataGridViewTextBoxColumn.HeaderText = "fecha";
-            fechaDataGridViewTextBoxColumn.Name = "fechaDataGridViewTextBoxColumn";
-            // 
-            // imputacionDataGridViewTextBoxColumn
-            // 
-            imputacionDataGridViewTextBoxColumn.DataPropertyName = "imputacion";
-            imputacionDataGridViewTextBoxColumn.HeaderText = "imputacion";
-            imputacionDataGridViewTextBoxColumn.Name = "imputacionDataGridViewTextBoxColumn";
-            // 
-            // Cliente
-            // 
-            Cliente.DataPropertyName = "idVenta";
-            Cliente.HeaderText = "Cliente";
-            Cliente.Name = "Cliente";
-            Cliente.Resizable = DataGridViewTriState.True;
-            Cliente.SortMode = DataGridViewColumnSortMode.NotSortable;
-            // 
-            // TipoComprobante
-            // 
-            TipoComprobante.HeaderText = "TipoComprobante";
-            TipoComprobante.Name = "TipoComprobante";
-            TipoComprobante.Resizable = DataGridViewTriState.True;
-            TipoComprobante.SortMode = DataGridViewColumnSortMode.NotSortable;
-            // 
-            // numero
-            // 
-            numero.DataPropertyName = "numero";
-            numero.HeaderText = "numero";
-            numero.Name = "numero";
-            // 
-            // punto
-            // 
-            punto.DataPropertyName = "punto";
-            punto.HeaderText = "punto";
-            punto.Name = "punto";
-            // 
-            // Moneda
-            // 
-            Moneda.DataPropertyName = "punto";
-            Moneda.HeaderText = "Moneda";
-            Moneda.Name = "Moneda";
-            // 
-            // tipoCambio
-            // 
-            tipoCambio.DataPropertyName = "tipoCambio";
-            tipoCambio.HeaderText = "tipoCambio";
-            tipoCambio.Name = "tipoCambio";
-            // 
-            // netoGravado
-            // 
-            netoGravado.DataPropertyName = "netoGravado";
-            netoGravado.HeaderText = "netoGravado";
-            netoGravado.Name = "netoGravado";
-            // 
-            // iva
-            // 
-            iva.DataPropertyName = "iva";
-            iva.HeaderText = "iva";
-            iva.Name = "iva";
-            // 
-            // netoNoGravado
-            // 
-            netoNoGravado.DataPropertyName = "netoNoGravado";
-            netoNoGravado.HeaderText = "netoNoGravado";
-            netoNoGravado.Name = "netoNoGravado";
-            // 
-            // exento
-            // 
-            exento.DataPropertyName = "exento";
-            exento.HeaderText = "exento";
-            exento.Name = "exento";
-            // 
-            // percIVA
-            // 
-            percIVA.DataPropertyName = "percIVA";
-            percIVA.HeaderText = "percIVA";
-            percIVA.Name = "percIVA";
-            // 
-            // percIIBB
-            // 
-            percIIBB.DataPropertyName = "percIIBB";
-            percIIBB.HeaderText = "percIIBB";
-            percIIBB.Name = "percIIBB";
-            // 
-            // percMunicipalidad
-            // 
-            percMunicipalidad.DataPropertyName = "percMunicipalidad";
-            percMunicipalidad.HeaderText = "percMunicipalidad";
-            percMunicipalidad.Name = "percMunicipalidad";
-            // 
-            // Cuenta
-            // 
-            Cuenta.DataPropertyName = "percMunicipalidad";
-            Cuenta.HeaderText = "cuenta";
-            Cuenta.Name = "Cuenta";
-            // 
-            // CentroCosto
-            // 
-            CentroCosto.DataPropertyName = "percMunicipalidad";
-            CentroCosto.HeaderText = "CentroCosto";
-            CentroCosto.Name = "CentroCosto";
-            // 
-            // ventaBindingSource
-            // 
-            ventaBindingSource.DataSource = typeof(Modelos.Venta);
             // 
             // Eliminar
             // 
@@ -352,20 +367,20 @@
             button3.Text = ">";
             button3.UseVisualStyleBackColor = true;
             // 
-            // comboBox5
+            // comboBoxCentro
             // 
-            comboBox5.AutoCompleteMode = AutoCompleteMode.Suggest;
-            comboBox5.AutoCompleteSource = AutoCompleteSource.ListItems;
-            comboBox5.DataSource = centroCostoBindingSource;
-            comboBox5.DisplayMember = "descripcion";
-            comboBox5.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox5.FormattingEnabled = true;
-            comboBox5.Location = new Point(60, 367);
-            comboBox5.Margin = new Padding(2);
-            comboBox5.Name = "comboBox5";
-            comboBox5.Size = new Size(210, 23);
-            comboBox5.TabIndex = 73;
-            comboBox5.ValueMember = "idCentro";
+            comboBoxCentro.AutoCompleteMode = AutoCompleteMode.Suggest;
+            comboBoxCentro.AutoCompleteSource = AutoCompleteSource.ListItems;
+            comboBoxCentro.DataSource = centroCostoBindingSource;
+            comboBoxCentro.DisplayMember = "descripcion";
+            comboBoxCentro.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxCentro.FormattingEnabled = true;
+            comboBoxCentro.Location = new Point(60, 367);
+            comboBoxCentro.Margin = new Padding(2);
+            comboBoxCentro.Name = "comboBoxCentro";
+            comboBoxCentro.Size = new Size(210, 23);
+            comboBoxCentro.TabIndex = 73;
+            comboBoxCentro.ValueMember = "idCentro";
             // 
             // centroCostoBindingSource
             // 
@@ -391,20 +406,20 @@
             label15.TabIndex = 71;
             label15.Text = "Cuenta";
             // 
-            // comboBox4
+            // comboBoxCuenta
             // 
-            comboBox4.AutoCompleteMode = AutoCompleteMode.Suggest;
-            comboBox4.AutoCompleteSource = AutoCompleteSource.ListItems;
-            comboBox4.DataSource = cuentaBindingSource;
-            comboBox4.DisplayMember = "detalle";
-            comboBox4.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox4.FormattingEnabled = true;
-            comboBox4.Location = new Point(60, 332);
-            comboBox4.Margin = new Padding(2);
-            comboBox4.Name = "comboBox4";
-            comboBox4.Size = new Size(210, 23);
-            comboBox4.TabIndex = 70;
-            comboBox4.ValueMember = "idCuenta";
+            comboBoxCuenta.AutoCompleteMode = AutoCompleteMode.Suggest;
+            comboBoxCuenta.AutoCompleteSource = AutoCompleteSource.ListItems;
+            comboBoxCuenta.DataSource = cuentaBindingSource;
+            comboBoxCuenta.DisplayMember = "detalle";
+            comboBoxCuenta.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxCuenta.FormattingEnabled = true;
+            comboBoxCuenta.Location = new Point(60, 332);
+            comboBoxCuenta.Margin = new Padding(2);
+            comboBoxCuenta.Name = "comboBoxCuenta";
+            comboBoxCuenta.Size = new Size(210, 23);
+            comboBoxCuenta.TabIndex = 70;
+            comboBoxCuenta.ValueMember = "idCuenta";
             // 
             // cuentaBindingSource
             // 
@@ -574,18 +589,18 @@
             label7.TabIndex = 52;
             label7.Text = "Cambio";
             // 
-            // comboBox3
+            // comboBoxMoneda
             // 
-            comboBox3.DataSource = monedaBindingSource;
-            comboBox3.DisplayMember = "Descripcion";
-            comboBox3.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox3.FormattingEnabled = true;
-            comboBox3.Location = new Point(78, 163);
-            comboBox3.Margin = new Padding(2);
-            comboBox3.Name = "comboBox3";
-            comboBox3.Size = new Size(85, 23);
-            comboBox3.TabIndex = 51;
-            comboBox3.ValueMember = "idMoneda";
+            comboBoxMoneda.DataSource = monedaBindingSource;
+            comboBoxMoneda.DisplayMember = "Descripcion";
+            comboBoxMoneda.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxMoneda.FormattingEnabled = true;
+            comboBoxMoneda.Location = new Point(78, 163);
+            comboBoxMoneda.Margin = new Padding(2);
+            comboBoxMoneda.Name = "comboBoxMoneda";
+            comboBoxMoneda.Size = new Size(85, 23);
+            comboBoxMoneda.TabIndex = 51;
+            comboBoxMoneda.ValueMember = "idMoneda";
             // 
             // monedaBindingSource
             // 
@@ -619,24 +634,24 @@
             label5.TabIndex = 47;
             label5.Text = "Numero";
             // 
-            // comboBox2
+            // comboBoxTipo
             // 
-            comboBox2.AutoCompleteMode = AutoCompleteMode.Suggest;
-            comboBox2.AutoCompleteSource = AutoCompleteSource.ListItems;
-            comboBox2.DataSource = tipoComprobanteBindingSource;
-            comboBox2.DisplayMember = "Descripcion";
-            comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(76, 101);
-            comboBox2.Margin = new Padding(2);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(173, 23);
-            comboBox2.TabIndex = 46;
-            comboBox2.ValueMember = "idTipo";
+            comboBoxTipo.AutoCompleteMode = AutoCompleteMode.Suggest;
+            comboBoxTipo.AutoCompleteSource = AutoCompleteSource.ListItems;
+            comboBoxTipo.DataSource = tipoComprobantebindingSource;
+            comboBoxTipo.DisplayMember = "descripcion";
+            comboBoxTipo.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxTipo.FormattingEnabled = true;
+            comboBoxTipo.Location = new Point(76, 101);
+            comboBoxTipo.Margin = new Padding(2);
+            comboBoxTipo.Name = "comboBoxTipo";
+            comboBoxTipo.Size = new Size(173, 23);
+            comboBoxTipo.TabIndex = 46;
+            comboBoxTipo.ValueMember = "idTipo";
             // 
-            // tipoComprobanteBindingSource
+            // tipoComprobantebindingSource
             // 
-            tipoComprobanteBindingSource.DataSource = typeof(Modelos.TipoComprobante);
+            tipoComprobantebindingSource.DataSource = typeof(Modelos.TipoComprobante);
             // 
             // label4
             // 
@@ -677,20 +692,20 @@
             label1.TabIndex = 40;
             label1.Text = "Cliente";
             // 
-            // comboBox1
+            // comboBoxCliente
             // 
-            comboBox1.AutoCompleteMode = AutoCompleteMode.Suggest;
-            comboBox1.AutoCompleteSource = AutoCompleteSource.ListItems;
-            comboBox1.DataSource = clienteBindingSource;
-            comboBox1.DisplayMember = "nombre";
-            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(76, 69);
-            comboBox1.Margin = new Padding(2);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(239, 23);
-            comboBox1.TabIndex = 39;
-            comboBox1.ValueMember = "idCliente";
+            comboBoxCliente.AutoCompleteMode = AutoCompleteMode.Suggest;
+            comboBoxCliente.AutoCompleteSource = AutoCompleteSource.ListItems;
+            comboBoxCliente.DataSource = clienteBindingSource;
+            comboBoxCliente.DisplayMember = "nombre";
+            comboBoxCliente.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxCliente.FormattingEnabled = true;
+            comboBoxCliente.Location = new Point(76, 69);
+            comboBoxCliente.Margin = new Padding(2);
+            comboBoxCliente.Name = "comboBoxCliente";
+            comboBoxCliente.Size = new Size(239, 23);
+            comboBoxCliente.TabIndex = 39;
+            comboBoxCliente.ValueMember = "idCliente";
             // 
             // clienteBindingSource
             // 
@@ -735,11 +750,20 @@
             textBoxImputacion.Size = new Size(90, 23);
             textBoxImputacion.TabIndex = 81;
             // 
+            // labelId
+            // 
+            labelId.AutoSize = true;
+            labelId.Location = new Point(20, 10);
+            labelId.Name = "labelId";
+            labelId.Size = new Size(0, 15);
+            labelId.TabIndex = 82;
+            // 
             // FormVenta
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1079, 475);
+            Controls.Add(labelId);
             Controls.Add(textBoxImputacion);
             Controls.Add(label17);
             Controls.Add(textBoxPunto);
@@ -748,10 +772,10 @@
             Controls.Add(Cargar);
             Controls.Add(button4);
             Controls.Add(button3);
-            Controls.Add(comboBox5);
+            Controls.Add(comboBoxCentro);
             Controls.Add(label16);
             Controls.Add(label15);
-            Controls.Add(comboBox4);
+            Controls.Add(comboBoxCuenta);
             Controls.Add(textBoxPerMun);
             Controls.Add(label14);
             Controls.Add(label13);
@@ -770,16 +794,16 @@
             Controls.Add(textBoxGravado);
             Controls.Add(textBoxCambio);
             Controls.Add(label7);
-            Controls.Add(comboBox3);
+            Controls.Add(comboBoxMoneda);
             Controls.Add(label6);
             Controls.Add(textBoxNumero);
             Controls.Add(label5);
-            Controls.Add(comboBox2);
+            Controls.Add(comboBoxTipo);
             Controls.Add(label4);
             Controls.Add(label2);
             Controls.Add(dateTimePicker1);
             Controls.Add(label1);
-            Controls.Add(comboBox1);
+            Controls.Add(comboBoxCliente);
             Margin = new Padding(2);
             Name = "FormVenta";
             Text = "FormVenta";
@@ -791,7 +815,7 @@
             ((System.ComponentModel.ISupportInitialize)centroCostoBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)cuentaBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)monedaBindingSource).EndInit();
-            ((System.ComponentModel.ISupportInitialize)tipoComprobanteBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)tipoComprobantebindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)clienteBindingSource).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -800,7 +824,7 @@
         #endregion
 
         private GroupBox groupBox1;
-        private TextBox textBox12;
+        private TextBox textBoxFiltro;
         private Button Filtrar;
         private Button Cobrar;
         private Button Detalle;
@@ -809,10 +833,10 @@
         private Button Cargar;
         private Button button4;
         private Button button3;
-        private ComboBox comboBox5;
+        private ComboBox comboBoxCentro;
         private Label label16;
         private Label label15;
-        private ComboBox comboBox4;
+        private ComboBox comboBoxCuenta;
         private TextBox textBoxPerMun;
         private Label label14;
         private Label label13;
@@ -831,16 +855,16 @@
         private TextBox textBoxGravado;
         private TextBox textBoxCambio;
         private Label label7;
-        private ComboBox comboBox3;
+        private ComboBox comboBoxMoneda;
         private Label label6;
         private TextBox textBoxNumero;
         private Label label5;
-        private ComboBox comboBox2;
+        private ComboBox comboBoxTipo;
         private Label label4;
         private Label label2;
         private DateTimePicker dateTimePicker1;
         private Label label1;
-        private ComboBox comboBox1;
+        private ComboBox comboBoxCliente;
         private Microsoft.Data.SqlClient.SqlCommand sqlCommand1;
         private BindingSource ventaBindingSource;
         private Label label3;
@@ -848,28 +872,29 @@
         private Label label17;
         private TextBox textBoxImputacion;
         private BindingSource clienteBindingSource;
-        private BindingSource tipoComprobanteBindingSource;
         private BindingSource cuentaBindingSource;
         private BindingSource monedaBindingSource;
         private BindingSource centroCostoBindingSource;
+        private BindingSource tipoComprobantebindingSource;
+        private Label labelId;
         private DataGridView dataGridView1;
         private DataGridViewTextBoxColumn idVentaDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn fechaDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn imputacionDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn Cliente;
-        private DataGridViewTextBoxColumn TipoComprobante;
-        private DataGridViewTextBoxColumn numero;
-        private DataGridViewTextBoxColumn punto;
-        private DataGridViewTextBoxColumn Moneda;
-        private DataGridViewTextBoxColumn tipoCambio;
-        private DataGridViewTextBoxColumn netoGravado;
-        private DataGridViewTextBoxColumn iva;
-        private DataGridViewTextBoxColumn netoNoGravado;
-        private DataGridViewTextBoxColumn exento;
-        private DataGridViewTextBoxColumn percIVA;
-        private DataGridViewTextBoxColumn percIIBB;
-        private DataGridViewTextBoxColumn percMunicipalidad;
-        private DataGridViewTextBoxColumn Cuenta;
-        private DataGridViewTextBoxColumn CentroCosto;
+        private DataGridViewTextBoxColumn tipoCambioDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn puntoDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn numeroDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn netoGravadoDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn netoNoGravadoDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn exentoDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn ivaDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn percIVADataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn percIIBBDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn percMunicipalidadDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn clienteDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn tipoComprobanteDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn monedaDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn centroCostoDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn cuentaDataGridViewTextBoxColumn;
     }
 }
